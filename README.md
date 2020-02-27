@@ -1,4 +1,4 @@
-#Proyecto de final de curso de Linkiafp
+## Proyecto de final de curso de Linkiafp
 
-## Arquitectura
+### Arquitectura
 
