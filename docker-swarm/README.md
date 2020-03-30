@@ -1,4 +1,6 @@
 # Proyecto
+## Explanation
+docker-compose.yml: File with the necessary configuration to raise an infrastructure that contains a running docker viewer, web page made with a wordpress content manager and a mysql server
 ```
 version: '3.3'
 
@@ -34,4 +36,8 @@ services:
        WORDPRESS_DB_NAME: wordpress
 volumes:
    db_data: {}
+```
+## Execute
+```
+docker stack deploy -c docker-compose.yml
 ```
