@@ -1,7 +1,7 @@
 # Project
 ## Explanation
 Dockerfile: File with the necessary parameters for the creation of the web server image
-´´´
+```
 # Version: 1.0
 # Linkia FP 2019-2020
 # Raul Baena Nocea
@@ -14,10 +14,9 @@ RUN dnf -y install httpd
 COPY index.html /var/www/html/
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80
-´´´
+```
 index.html: Main web server file.
-
-´´´
+```
 <html>
 
 <head></head>
@@ -28,8 +27,8 @@ index.html: Main web server file.
 </body>
 
 </html>
-´´´
-## Execute
-´´´
+```
+## Execution 
+```
 docker run --rm --name http -h http -p 4000:80 -d raulbaena/http:server20
-´´´
+```
