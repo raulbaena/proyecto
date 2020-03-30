@@ -1,6 +1,5 @@
 # Proyecto
-
-'''
+´´´
 version: '3.3'
 
 services:
@@ -35,4 +34,4 @@ services:
        WORDPRESS_DB_NAME: wordpress
 volumes:
    db_data: {}
-'''
+´´´
