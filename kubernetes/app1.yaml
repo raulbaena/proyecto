@@ -1,0 +1,24 @@
+#Cabecera del deployment. 
+apiVersion: apps/v1  #Versión de la API que usaremos.
+kind: Deployment #Espemecificaremos el tipo de objeto que definiremos.
+#Metadatos
+metadata: #Datos que describen nuestro deployment.
+  name: nginx #Nombre del deployment.
+#Especificaciones del pod.
+spec:
+  selector:
+    matchLabels: #Es un mapa de pares {key,values}.
+      run: nginx #Nombre de la app.
+  replicas: 3 #Numero de replicas.
+  template: #Para crear nuevos pods definirmemos una base.
+    metadata: #Datos que desbriben la app.
+      labels:
+        run: nginx #Estiqueta.
+    #Especificaciones del container.     
+    spec:
+      containers: #Indicamos los datos del container.
+      - name: nginx
+        image: nginx:latest #Imagen en la que estará basado el container.
+        ports: #Deficinicon de puertos.
+        - containerPort: 80 #Puerto que publicará el conatiner
+      restartPolicy: Always #Siempren haya el numero de pods indicados

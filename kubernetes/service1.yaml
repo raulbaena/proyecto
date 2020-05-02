@@ -1,0 +1,16 @@
+#Cabecera del deployment 
+apiVersion: v1  #Versión de la API que usaremos.
+kind: Service #Espemecificaremos el tipo de objeto que definiremos
+#Metadatos del service
+metadata:
+  name: nginx #Nombre del service
+  labels:
+    run: nginx #Etiqueta añadida al service
+#Especificaciones de la maquina.
+spec:
+  ports: #Puertos que se publicarán.
+  - port: 80 #Puerto donde se publicará 
+    protocol: TCP #Tipo de protocolo que utilizara la app.
+  selector: #Con selector se define el conjunto de pods.
+    run: nginx #Etiqueta del selector por la cual se agrupan los pods.
+  type: LoadBalancer #Tipo de acceso desde el exterior.
