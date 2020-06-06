@@ -1,0 +1,24 @@
+#Cabecera
+apiVersion: cert-manager.io/v1alpha2 #Version que se usará
+kind: ClusterIssuer #Tipo de despliegue
+#Metadatos del pod
+metadata:
+ #Nombre
+ name: letsencrypt-staging
+ #Namespace donde correrá
+ namespace: cert-manager
+#Especificaciones del pod
+spec:
+ acme:
+   #URL del servidor ACME
+   server: https://acme-staging-v02.api.letsencrypt.org/directory
+   #Mail que usaremosm para registrarnos
+   email: raulbaenanocea@gmail.com
+   #Nombre del secreto usado para la cuenta ACME
+   privateKeySecretRef:
+     name: letsencrypt-staging
+   #Activamos el proveedir HTTP-01
+   solvers:
+   - http01:
+       ingress:
+         class:  nginx

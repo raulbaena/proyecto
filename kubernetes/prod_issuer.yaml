@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+  namespace: cert-manager
+spec:
+  acme:
+    # Servidor Acme
+    server: https://acme-v02.api.letsencrypt.org/directory
+    #Mail de registro
+    email: raulbaenanocea@gmail.com
+    #Nombre de Key
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    #Habilitamos el HTTP-01
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
